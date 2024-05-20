@@ -2,13 +2,15 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const title = "Welcome to the new blog";
+  const likes = 50;
 
   return (
     <>
       <div>
         <div className="content">
-          <h1>App Component</h1>
+          <h1>{title}</h1>
+          <p>Liked {likes} times</p>
         </div>
       </div>
       
