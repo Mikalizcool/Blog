@@ -7,11 +7,17 @@ const Home = () => {
         setBlogs(newBlogs);
     }
     useEffect(() => {
-        console.log("use effect ran");
+        fetch("http://localhost:8000/blogs")
+            .then(res => {
+                return res.json()
+            })
+            .then((data) => {
+                setBlogs(data);
+            })
     }, []);
     return (
         <div className="home">
-            <Bloglist blogs={blogs} title="All blogs" handleDelete={handleDelete}/>
+            {blogs && <Bloglist blogs={blogs} title="All blogs" handleDelete={handleDelete}/>}
         </div>
       );
 }
